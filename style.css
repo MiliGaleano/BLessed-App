@@ -1,0 +1,809 @@
+* {
+    margin:  0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    border: 0;
+    outline: 0;
+    background: transparent;
+  }
+
+a{
+  color: inherit;
+}
+
+  html, body
+  {
+    height: 100%;
+  }
+
+/*Loading*/
+.loading {
+  position:fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  z-index: 97;
+  background: url(img/Sin-título1.gif) center no-repeat #fff;
+    background-size: 80vw;
+   }
+
+header {
+    position: fixed;
+    top: 0;
+    background-color: rgb(41, 70, 135);
+    width: 100vw;
+    z-index: 98;
+}
+
+    .flex {  
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  #home {
+    flex: 20%;
+    padding: 2.5vw;
+    height: 10vw;
+  }
+
+  #logo {
+    margin-left: 1vw;
+    width: 10vw;
+}
+
+  #searchform {
+    flex: 60%;
+    padding: 3.5vw;
+    justify-content: flex-end;
+  }
+
+
+  @keyframes searchopen {
+    from {width: 8vw;}
+    to {width: 60vw;}
+  }
+
+  #opensearch{
+    width: 8vw;
+    height: 8vw;
+    border-style: solid;
+    border-color: rgb(228, 119, 125);
+    border-width: 0.5px;
+    border-radius: 5vw;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+  }
+
+  #opensearch:focus {
+    color: transparent;
+  }
+
+  #glass {
+    width: 4vw;
+    margin-top: 2vw;
+    margin-left: 2vw;
+  }
+
+  #formsearch {
+        display: none;
+        margin-top: 1vw;
+  }
+
+  @keyframes inputanimation {
+    0%    {opacity: 0;}
+    100%  {opacity: 1;}
+  }
+
+  #inputsearch{
+    height: 6vw;
+    width: 51vw;
+    padding-left: 2vw;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+    color:  rgb(228, 119, 125);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+  }
+
+  #inputsearch::placeholder {
+    color:  rgb(228, 119, 125);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+  }
+  
+  @keyframes glassbuttonanimation {
+    0%    {opacity: 0;}
+    50%   {transform: rotate(0deg);
+          opacity: 0;}
+    100%  {transform: rotate(360deg); 
+          opacity: 1;}
+  }
+
+  #glassbutton {
+    width: 4vw;
+    animation-name: glassbuttonanimation; 
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+  }
+
+/* registration */
+#reglogo {
+  width: 40vw;
+  margin-left: 30vw;
+  margin-top: 10vw;
+}
+
+#formlogin{
+  margin-top: 8vw;
+}
+
+#formlogin h1 {
+  width: 60vw;
+  margin-left: 20vw;
+  font-family: 'Kodchasan', sans-serif;
+    color:  rgb(228, 119, 125);
+    font-weight: 700;
+    font-size: 4vw;
+    text-align: center;
+}
+
+#inputslogin{
+  margin-top: 4vw;
+  width: 60vw;
+  margin-left: 20vw;
+}
+
+#inputslogin label {
+  font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 3vw;
+    color: rgb(41, 70, 135);
+}
+
+.datainputadd.inpreg {
+width: 100%;
+height: 5vw;
+}
+.datainputadd.inpregp {
+  width: 100%;
+  height: 5vw;
+  }
+
+#buttonslogin{
+  margin-top: 6vw;
+  width: 60vw;
+  margin-left: 20vw;
+  justify-content: space-evenly;
+}
+
+  .buttonsubmit.log {
+    width: 20vw;
+    margin-left: 0vw;
+  }
+  .buttonsubmit.sign {
+    width: 20vw;
+    margin-left: 0vw;
+    background-color:rgb(175, 217, 221);
+    color: rgb(41, 70, 135);
+  }
+
+  #buttonforgot{
+    margin-top: 4vw;
+    margin-left: 30vw;
+    width: 40vw;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 3vw;
+    color: rgb(41, 70, 135);
+    text-align: center;
+  }
+
+  /* favs */
+  #contentfavs{
+    margin-top: 18vw;
+    margin-bottom: 16vw;
+  }
+  .titlepage{
+    font-family: 'Kodchasan', sans-serif;
+    color:  rgb(228, 119, 125);
+    font-weight: 700;
+    font-size: 8vw;
+    text-align: center;
+  }
+
+  .favouriteimg{
+    margin-top: 4vw;
+    margin-left: 2vw;
+    width: 96vw;
+    height: auto;
+    background-color: rgb(255, 255, 255);
+    border-radius: 4vw;
+    filter: drop-shadow(0px 4px 4px rgba(100, 100, 100, 0.15));
+  }
+
+  .imgfavs{
+    width: 40vw;
+    margin-left: 4vw;
+    margin-top: 4vw;
+  }
+
+  .starcount{
+    width: 40vw;
+    margin-left: 4vw;
+    text-align: center;
+    margin-bottom: 2vw;
+  }
+
+  .star {
+    fill: none;
+    width: 6vw;
+    stroke:rgb(41, 70, 135);
+    stroke-width:15;
+    stroke-miterlimit:10;
+    padding-left: 0.3vw;
+    padding-right: 0.3vw;
+  }
+
+  .star.filled {
+    fill: rgb(228, 119, 125); 
+    stroke:rgb(228, 119, 125);
+    stroke-width:15;
+    stroke-miterlimit:10; 
+    padding-left: 0.3vw;
+    padding-right: 0.3vw;
+  }
+  .star.half {
+    fill:url(#left-half); 
+    stroke:url(#left-right-stroke);
+    stroke-width:15;
+    stroke-miterlimit:10; 
+    padding-left: 0.3vw;
+    padding-right: 0.3vw;
+  }
+
+  .seriesdata{
+    margin-left: 4vw;
+    margin-top: 4vw;
+    width: 45vw;
+  }
+
+  .nameserie{
+  font-family: 'Kodchasan', sans-serif;
+    color:  rgb(228, 119, 125);
+    font-weight: 600;
+    font-size: 5vw;
+  }
+
+  .countryserie{
+    font-family: 'Poppins', sans-serif;
+    color:  rgb(41, 70, 135);
+    font-weight: 300;
+    font-size: 3vw;
+    font-style: italic;
+    margin-bottom: 1vw;
+  }
+
+  p{
+    font-family: 'Poppins', sans-serif;
+    color:  rgb(41, 70, 135);
+    font-weight: 400;
+    font-size: 2.5vw;
+  }
+
+  .buttonsmodal{
+    padding-bottom: 1vw;
+  }
+
+  #circulox1{
+    width: 8vw;
+    position: relative;
+    top: 4vw;
+    left: 37vw;
+    fill:rgb(175, 217, 221);
+  }
+  .x0{display:none;}
+    .x1{fill:rgb(41, 70, 135);}
+
+    .watchlink{
+      width: 20vw;
+      background-color: rgb(249, 236, 115);
+      border-radius: 2vw;
+      font-family: 'Poppins', sans-serif;
+      color:  rgb(41, 70, 135);
+      font-weight: 700;
+      font-size: 3vw;
+      text-align: center;
+      padding-top: 2vw;
+      padding-bottom: 2vw;
+      margin-top: 3.7vw;
+    }
+    .watchlink.nolink {
+      width: 20vw;
+      background-color: white;
+      border-radius: 2vw;
+      font-family: 'Poppins', sans-serif;
+      color:  white;
+      font-weight: 700;
+      font-size: 3vw;
+      text-align: center;
+      padding-top: 2vw;
+      padding-bottom: 2vw;
+      margin-top: 3.7vw;
+    }
+
+    .svgwatchedicon {
+      margin-top: 4.2vw;
+      margin-left: 4.5vw;
+      height: 7vw;
+      fill:none;
+      stroke:rgb(41, 70, 135);
+      stroke-width:40;
+      stroke-miterlimit:10;
+      }
+
+      .svgchecked {
+        fill:rgb(41, 70, 135);
+      stroke:rgb(255, 255, 255);
+      }
+    
+      #svgeyewatch{ 
+      margin-top: 3.5vw;
+      margin-left: 4vw;
+      height: 8.5vw;
+      fill:none;
+      stroke:rgb(41, 70, 135);
+      stroke-width: 30;
+      stroke-miterlimit:10;
+    }
+    .eyewatch {
+      fill:rgb(228, 119, 125);
+      stroke: rgb(228, 119, 125);
+    }
+    .eyewatch.eye {
+      fill:white;
+      stroke:none;
+    }
+
+    .svgheart{
+      display: none;
+      margin-top: 4.4vw;
+      margin-left: 4vw;
+      height: 6.2vw;
+      fill:none;
+      stroke:rgb(41, 70, 135);
+      stroke-width: 35;
+      stroke-miterlimit:10;
+    }
+    .svgheart.favsvg {
+      fill:rgb(228, 119, 125);
+      stroke:none;
+      height: 6.8vw;
+    }
+
+  .modalstyle {
+    display: none;
+    position: fixed;
+    top: 40%;
+    left: 10vw;
+    width: 80vw;
+    z-index: 90;
+    background-color: rgb(249, 236, 115);
+    border-radius: 4vw;
+  }
+
+  .modalstyle.ratemod{
+      z-index: 105;
+  }
+
+  .modalstyleh1 {
+    font-family: 'Poppins', sans-serif;
+    color:  rgb(41, 70, 135);
+    font-weight: 500;
+    font-size: 4vw;
+    width: 60vw;
+    margin-left: 10vw;
+    margin-top: 6vw;
+    text-align: center;
+    margin-bottom: 4vw;
+  }
+
+  .buttonmodal {
+    font-family: 'Kodchasan', sans-serif;
+    color:  rgb(228, 119, 125);
+    font-weight: 600;
+    font-size: 5vw;
+    text-align: center;
+    width: 10vw;
+    margin-left: 20vw;
+    margin-bottom: 6vw;
+  }
+
+  .blrate {
+    width: 60vw;
+    margin-left: 10vw;
+    justify-content: space-between;
+  }
+
+  .ratebutton {
+    background-color:rgb(175, 217, 221);
+    border-radius:50%;
+}
+
+.ratebutton label span{
+  font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 3vw;
+    text-align:center;
+    padding: 2vw;
+    color: rgb(41, 70, 135);
+}
+
+.ratebutton input[type=radio]:checked + span {
+    background-color:rgb(228, 119, 125);
+    color:rgb(249, 236, 115);
+    border-radius:50%;
+    padding: 1.5vw 2.5vw;
+}
+
+.ratedone {
+  font-family: 'Kodchasan', sans-serif;
+  color:  rgb(228, 119, 125);
+  font-weight: 600;
+  font-size: 5vw;
+  text-align: center;
+  width: 10vw;
+  margin-left: 35vw;
+  margin-top: 6vw;
+  margin-bottom: 6vw;
+}
+
+footer {  
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    padding-bottom: 0.5vw;
+    padding-top: 1.5vw;
+    z-index: 99;
+    background-color: rgb(41, 70, 135);
+}
+#footerredes{
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.iconos {
+    padding: 0;
+    height: 10vw;
+  }
+
+  /* home */
+  #contenthome{
+    margin-top: 20vw;
+    margin-bottom: 16vw;
+  }
+
+  #linksfilter {
+  width: 92vw;
+  justify-content: space-between;
+  margin-left: 4vw;
+  font-family: 'Poppins', sans-serif;
+    color:  rgb(41, 70, 135);
+    font-weight: 300;
+    font-size: 3vw;
+  }
+
+  #buttonshome{
+    width: 80vw;
+    margin-left: 10vw;
+    margin-top: 6vw;
+    justify-content: space-between;
+    margin-bottom: 8vw;
+  }
+
+  .buttonhome {
+    width: 37vw;
+    background-color: rgb(249, 236, 115);
+    border-radius: 10vw;
+    font-family: 'Poppins', sans-serif;
+    color:  rgb(41, 70, 135);
+    font-weight: 700;
+    font-size: 3vw;
+    text-align: center;
+    padding-top: 3vw;
+    padding-bottom: 3vw;
+  }
+
+  /* SLIDER */
+  .swiper-container {
+    height: 80vw;
+  }
+  
+  .swiper-container img{
+      width: 36vw;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    background: #fff;
+    width: 36vw;
+    margin-right: 2vw;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+  .starcounta{
+width: 34vw;
+margin-left: 1vw;
+text-align: center;
+margin-bottom: 2vw;
+}
+
+.stara {
+fill: none;
+width: 5vw;
+stroke:rgb(41, 70, 135);
+stroke-width:15;
+stroke-miterlimit:10;
+}
+
+.stara.filleda {
+fill: rgb(228, 119, 125);
+stroke:rgb(228, 119, 125);
+stroke-width:15;
+stroke-miterlimit:10; 
+}
+
+.favcounta{
+  width: 36vw;
+  justify-content: space-evenly;
+}
+
+.favsheartlist{
+  width: 7vw;
+}
+.favsheart {
+  fill: rgb(228, 119, 125);
+}
+.favsheart1{
+  fill:none;
+}
+.titlelist{
+font-family: 'Poppins', sans-serif;
+    color:  rgb(41, 70, 135);
+    font-weight: 700;
+    font-size: 4vw;
+    margin-top: 1vw;
+}
+
+
+/* modalseriew */
+#modalseriew {
+  position:fixed;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(216, 216, 216, 0.75);
+  padding-top: 40vw;
+  display: none;
+  position: fixed;
+  z-index: 88;
+}
+
+.xmodal{
+    width: 10vw;
+    height: 10vw;
+    border-radius: 50%;
+    background-color: rgb(249, 236, 115);
+    font-family: 'Poppins', sans-serif;
+    color:  rgb(41, 70, 135);
+    font-weight: 700;
+    font-size: 6vw;
+    position: relative;
+    top: 8vw;
+    left: 88vw;
+    z-index: 89;
+    text-align: center;
+}
+
+/* modal suggest a bl */
+#modalsuggest{
+  position:fixed;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(255, 255, 255);
+  padding-top: 25vw;
+  display: none;
+  position: fixed;
+  z-index: 87;
+}
+
+.titlepage.suggestmodal{
+  font-weight: 700;
+    font-size: 5vw;
+}
+
+.chooseone{
+  margin-bottom: 10vw;
+  margin-top: 4vw;
+  justify-content: space-evenly;
+}
+
+.ck-button {
+    background-color:rgb(175, 217, 221);
+    border-radius:10vw;
+    padding:2vw 0vw;
+}
+
+.ck-button label span {
+  font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 4vw;
+    text-align:center;
+    padding:2vw 3vw;
+    color: rgb(41, 70, 135);
+}
+
+.ck-button input[type=radio]:checked + span {
+    background-color:rgb(249, 236, 115);
+    color:rgb(228, 119, 125);
+    border-radius:10vw;
+    padding:2vw 3vw;
+}
+
+.buttonsubmit {
+  margin-left: 30vw;
+  width: 40vw;
+  background-color: rgb(228, 119, 125);
+  border-radius: 10vw;
+  font-family: 'Poppins', sans-serif;
+  color:  rgb(249, 236, 115);
+  font-weight: 700;
+  font-size: 4vw;
+  text-align: center;
+  padding-top: 3vw;
+  padding-bottom: 3vw;
+}
+
+#suggestions{
+  display: none;
+  margin-top: 4vw;
+    margin-left: 2vw;
+    width: 96vw;
+    height: auto;
+    background-color: rgb(255, 255, 255);
+    border-radius: 4vw;
+    filter: drop-shadow(0px 4px 4px rgba(100, 100, 100, 0.15));
+    padding-bottom: 2vw;
+}
+
+#closesuggestion{
+  top: 2vw;
+    left: 82vw;
+}
+
+.listsuggestion {
+  margin-top: 2vw;
+  font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 4vw;
+    text-align:center;
+    color: rgb(41, 70, 135);
+    padding-bottom: 3vw;
+}
+
+/* modal add bl */
+#modaladd{
+  position:fixed;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(255, 255, 255);
+  padding-top: 25vw;
+  display: none;
+  position: fixed;
+  z-index: 86;
+}
+
+#addbldata {
+  margin-left: 10vw;
+  font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 4vw;
+    color: rgb(41, 70, 135);
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8vw;
+}
+
+.optionsadd{
+  margin-top: 8vw;
+}
+
+.datainputadd{
+  background-color: rgb(249, 236, 115);
+  opacity: 0.5;
+  width: 80vw;
+  border-radius: 10vw;
+  font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 3vw;
+    color: rgb(41, 70, 135);
+    padding-left: 2vw;
+  margin-top: 1vw;
+  margin-bottom: 4vw;
+}
+
+@keyframes closemodal {
+  0%    {opacity: 1;}
+  50%   {opacity: 1;}
+  100%  {opacity: 0;}
+}
+
+#thanksadd{
+  padding-top: 3vw;
+  animation-name: closemodal;
+  animation-duration: 3s;
+  animation-timing-function: ease-out;
+}
+
+/* options */
+#contentoptions{
+  margin-top: 6vw;
+  margin-bottom: 16vw;
+}
+
+/* watched */
+#contentwatched {
+  margin-top: 18vw;
+  margin-bottom: 16vw;
+}
+
+.ulflex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 90vw;
+  margin-left: 5vw;
+}
+.ulflex li img {
+width: 40vw;
+margin-top: 5vw;
+}
+
+/* to watch */
+#contenttowatch {
+  margin-top: 18vw;
+  margin-bottom: 16vw;
+}
+
+/* Search */
+#prueba{
+  display: none;
+  width: 80vw;
+  margin-left: 10vw;
+}

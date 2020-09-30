@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- fonts -->
+    <!-- font-family: 'Poppins', sans-serif; font-family: 'Kodchasan', sans-serif;-->
+    <link href="https://fonts.googleapis.com/css2?family=Kodchasan:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- favicon -->
+    <link  rel="icon"   href="img/faviconasas-01.png" type="image/png" />
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>BLessed</title>
+</head>
+<body>
+    <!-- loading -->
+    <div class="loading" id="loading"></div>
+
+    <header id="" class="flex">
+        <div id="home"><img src="img/faviconasas-01.png" alt="logo" id="logo"></div>
+        <!-- search -->
+        <div id="searchform" class="flex">
+            <div id="opensearch" onclick="openformsearch()">
+            <img src="img/lupa-01.png" alt="searchglass" id="glass">
+            <form id="formsearch">
+                <input type="text" name="search" placeholder="search..." id="inputsearch">
+                <button type="button" id="findabl" ><img src="img/lupa-01.png" alt="searchglass" id="glassbutton"></button>
+              </form>
+            </div>
+        </div>
+    </header>
+    
+    <div id="contenthome">
+        <!-- search result div -->
+        <div id="prueba"></div>
+        <!-- links to categories -->
+        <div id="divlinksfilter">
+            <ul id="linksfilter"  class="flex">
+                <a href="index.html"><li>home</li></a>|
+                <a href="options.html"><li id="shorti" onclick="openoptions(this)">short</li></a>|
+                <a href="options.html"><li id="moviei" onclick="openoptions(this)">movie</li></a>|
+                <a href="options.html"><li id="miniseriesi" onclick="openoptions(this)">miniseries</li></a>|
+                <a href="options.html"><li id="seriesi" onclick="openoptions(this)">series</li></a>|
+                <a href="options.html"><li id="tocryi" onclick="openoptions(this)">to cry</li></a>
+            </ul>
+        </div>
+
+        <div id="contentoptions"></div>
+
+            <!-- modalseries -->
+            <div id="modalseriew">
+                <p class="xmodal" id="closemodal">x</p>
+                <div id="contmodal"></div>
+            </div>
+
+            <!-- modal rate -->
+            <div id="modalrate" class="modalstyle ratemod">
+                <form id="blrated">
+                    <h1 id="rateh1" class="modalstyleh1"></h1>
+                    <div class="flex blrate">
+                        <div class="ratebutton"><label><input type="radio" value="1" name="blrate" class="radioinprate" hidden><span>1</span></label></div>
+                        <div class="ratebutton"><label><input type="radio" value="2" name="blrate" class="radioinprate" hidden><span>2</span></label></div>
+                        <div class="ratebutton"><label><input type="radio" value="3" name="blrate" class="radioinprate" hidden><span>3</span></label></div>
+                        <div class="ratebutton"><label><input type="radio" value="4" name="blrate" class="radioinprate" hidden><span>4</span></label></div>
+                        <div class="ratebutton"><label><input type="radio" value="5" name="blrate" class="radioinprate" hidden><span>5</span></label></div>
+                        <div class="ratebutton"><label><input type="radio" value="6" name="blrate" class="radioinprate" hidden><span>6</span></label></div>
+                        <div class="ratebutton"><label><input type="radio" value="7" name="blrate" class="radioinprate" hidden><span>7</span></label></div>
+                        <div class="ratebutton"><label><input type="radio" value="8" name="blrate" class="radioinprate" hidden><span>8</span></label></div>
+                        <div class="ratebutton"><label><input type="radio" value="9" name="blrate" class="radioinprate" hidden><span>9</span></label></div>
+                        <div class="ratebutton"><label><input type="radio" value="10" name="blrate" class="radioinprate" hidden><span>10</span></label></div>
+                    </div>
+                </form>
+                <button class="ratedone" type="button" id="buttonratedone">done</button>
+            </div>
+        
+            <!-- modal sure delete fav -->
+            <div id="modalsure" class="modalstyle">
+                <h1 id="modalh1" class="modalstyleh1"></h1>
+                <button class="buttonmodal" onclick="yeseliminate()">yes</button>
+                <button class="buttonmodal" onclick="modalout()">no</button>
+            </div>
+
+            <!-- modal sure delete watched -->
+            <div id="modalsurew" class="modalstyle">
+                <h1 id="modalh1w" class="modalstyleh1"></h1>
+                <button class="buttonmodal" onclick="yeseliminatew()">yes</button>
+                <button class="buttonmodal" onclick="modaloutw()">no</button>
+            </div>
+
+    <footer>
+        <ul id="footerredes" >
+            <li><a href="blist.html"><img src="img/Sin-título-4b-01.png" alt="blist" class="iconos"></a></li>
+            <li><a href="watched.html"><img src="img/sssdfsdf-01b-01.png" alt="watched" class="iconos"></a></li>
+            <li><a href="favs.html"><img src="img/sadasd-01b-01.png" alt="favs" class="iconos"></a></li>
+            <li><a href="#"><img src="img/sasasd-01.png" alt="home" class="iconos"></a></li>
+        </ul>
+    </footer>
+
+<!-- firebase -->
+     <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+     <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+  
+     <!-- Add Firebase products that you want to use -->
+     <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-auth.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-storage.js"></script>
+ 
+    <script src="script.js"></script>
+    <script>
+        window.onload = function onloadfunction(){
+            if (sessionStorage.getItem("useremail") === null) {
+                location.assign('registration.html');
+            } else {
+                loadoptions();
+            }
+        }
+    </script>
+</body>
+</html>

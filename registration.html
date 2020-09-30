@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- fonts -->
+    <!-- font-family: 'Poppins', sans-serif; font-family: 'Kodchasan', sans-serif;-->
+    <link href="https://fonts.googleapis.com/css2?family=Kodchasan:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- favicon -->
+    <link  rel="icon"   href="img/faviconasas-01.png" type="image/png" />
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>BLessed</title>
+</head>
+<body>
+    <div id="registration">
+        <img src="img/pinkmilk.png" alt="pink milk" id="reglogo">
+            <div id="formlogin" onsubmit="">
+                <h1 class="">Please complete this form to log in or sign up</h1>
+                    <div id="inputslogin">
+                    <label for="usermail">Email:</label>
+                    <input type="email" id="usermail" name="usermail" class="datainputadd inpreg">
+                    <label for="userpassword">Password:</label>
+                    <input type="password" id="userpassword" name="userpassword" class="datainputadd  inpregp">
+                    </div>
+                    <div class="flex" id="buttonslogin">
+                        <button class="buttonsubmit sign" id="signupbtn" >Sign up</button>
+                        <button class="buttonsubmit log" id="loginbtn" >Log in</button>
+                    </div>
+                    <button id="buttonforgot" >forgot my password</button>
+                </div>
+    </div>
+
+<!-- firebase -->
+     <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+     <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+  
+     <!-- Add Firebase products that you want to use -->
+     <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-auth.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-storage.js"></script>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
