@@ -199,7 +199,15 @@
 
 cerrarSesion();
 
-// https://firebase.google.com/docs/auth/web/auth-state-persistence?hl=es FIJARSE ESTO Q ONDA
+// open menu
+function showmenu() {
+    document.getElementById("divhamb").style.display = "flex";
+    document.getElementById("iconham").setAttribute("onclick", "closemenu()");
+}
+function closemenu() {
+    document.getElementById("divhamb").style.display = "none";
+    document.getElementById("iconham").setAttribute("onclick", "showmenu()");
+}
 
 // open modal rate
     function rateBL(x,y) {
@@ -499,12 +507,33 @@ function hideGifLoading() {
 
 // open search form
     function openformsearch() {
+        console.log(screen.width);
         document.getElementById("formsearch").style.display= "flex";
         document.getElementById("glass").style.display= "none";
         document.getElementById("opensearch").style.animationName= "searchopen";
-        document.getElementById("opensearch").style.width= "60vw";
+        if (screen.width < 790 ){
+            document.getElementById("opensearch").style.width= "45vw";
+        }
+        else {
+            document.getElementById("opensearch").style.width= "360px";
+        }
         document.getElementById("inputsearch").style.animationName= "inputanimation";
     }   
+    function closeformsearch() {
+        console.log("clcikeado");
+        let listsearch = document.getElementById("prueba");
+        while (listsearch.firstChild) {listsearch.removeChild(listsearch.firstChild);}
+        if (screen.width < 790 ){
+            document.getElementById("opensearch").style.width= "8vw";
+        }
+        else {
+            document.getElementById("opensearch").style.width= "33px";
+        }
+        document.getElementById("inputsearch").value = "";
+        document.getElementById("formsearch").style.display= "none";
+        document.getElementById("glass").style.display= "flex";
+        document.getElementById("opensearch").style.animationName= "";
+    }
 
 let allBLs = [];
 let allBLsid = [];
@@ -570,17 +599,17 @@ let optionsmessage = "Sorry, there's no bl with that name in this category";
 // fill stars
     function halfstarclass(x, item) {
         for (let i = 0; i < Math.floor(x); i++) {
-            document.getElementById("star" + item + i).setAttribute("class", "star filled");
+            document.getElementById("star" + item + i).setAttribute("class", "star filled modalstar");
             // console.log(x);
         }
         if (Number.isInteger(x) === false) {
             let fixedx = x.toFixed(2);
 
             if (fixedx-Math.floor(x) >= 0.25 && fixedx-Math.floor(x) <= 0.85) {
-            document.getElementById("star" + item + (Math.floor(x))).setAttribute("class", "star half");
+            document.getElementById("star" + item + (Math.floor(x))).setAttribute("class", "star half modalstar");
             }
             else if (fixedx-Math.floor(x) > 0.85) {
-                document.getElementById("star" + item + (Math.floor(x))).setAttribute("class", "star filled");
+                document.getElementById("star" + item + (Math.floor(x))).setAttribute("class", "star filled modalstar");
                 }
         }
     }
@@ -660,6 +689,8 @@ let topListStars = [];
         }
         });   
         crateSliderTop(topList, topListStars);
+        console.log(topList);
+        console.log(topListStars);
         })
         .catch(function(error) {
         console.log("Error: " , error);
@@ -810,7 +841,6 @@ let newTopListStars = [];
 // CREATE SLIDER TOP
     function crateSliderTop(x, y){
     // Filter top 10
-            for (let a = 0; a < 10; a++) {
                 for(b = 0; b < y.length; b++){
                     newTopListStars.push(Math.max(...y));
                     let indexoflist = y.indexOf(Math.max(...y));
@@ -818,14 +848,14 @@ let newTopListStars = [];
                     x.splice(indexoflist, 1);
                     y.splice(indexoflist, 1);
                 }  
-            }
         // create slider
+        console.log(newTopList.slice(0,10));
         let getDiv = document.getElementById('sliderTop');
         getDiv.setAttribute("class", "swiper-container")
         let divcont = document.createElement('div');
         divcont.setAttribute("class", "swiper-wrapper");
         getDiv.appendChild(divcont);
-        for (let i = 0; i < newTopList.length; i++) {
+        for (let i = 0; i < newTopList.slice(0,10).length; i++) {
             let div2 = document.createElement('div');
             div2.setAttribute("class", "swiper-slide");
             divcont.appendChild(div2);
@@ -972,7 +1002,7 @@ let newTopListStars = [];
                 for ( let i=0; i<5; i++) {
                     let svgstar = document.createElementNS("http://www.w3.org/2000/svg", "svg");
                     svgstar.setAttribute("version", "1.1");
-                    svgstar.setAttribute("class", "star");
+                    svgstar.setAttribute("class", "star modalstar");
                     svgstar.setAttribute("id", "star" + nameidthis + i);
                     svgstar.setAttribute("xmlns", "http://www.w3.org/2000/svg");
                     svgstar.setAttribute("xmlns:xlink", "http://www.w3.org/1999/xlink");
@@ -1043,18 +1073,30 @@ let newTopListStars = [];
             h2.setAttribute("id", nameidthis +"h2");
             h2.innerHTML = doc.data().name;
             div2.appendChild(h2);
+            // category
+            let h4 = document.createElement('h4');
+            h4.setAttribute("id", "categoryfull");
+            let fullbl = "Side story"
+            if (doc.data().full === "yes") {
+            h4.innerHTML = doc.data().category[0].toUpperCase() + doc.data().category.slice(1);
+            } else {
+            h4.innerHTML = doc.data().category[0].toUpperCase() + doc.data().category.slice(1) + " - " + fullbl;
+            }
+            div2.appendChild(h4);
             let h3 = document.createElement('h3');
             h3.setAttribute("class", "countryserie");
             h3.innerHTML = doc.data().country + " - " + doc.data().year;
             div2.appendChild(h3);
             let pseries = document.createElement('p');
             pseries.innerHTML = doc.data().description;
-            div2.appendChild(pseries);
+            div2.appendChild(pseries);  
         // button link watch
             let divflex = document.createElement('div');
             divflex.setAttribute("class", "flex");
+            divflex.setAttribute("id", "aligndiv");
             div2.appendChild(divflex);
             let linkseries = document.createElement('a');
+            linkseries.setAttribute("target", "_blank");
             divflex.appendChild(linkseries);
             let buttonwatch = document.createElement('div');
             buttonwatch.innerHTML = "watch";
@@ -1606,7 +1648,7 @@ let watchListblname = [];
             // create series card
             let divcont = document.createElement('div');
             divcont.setAttribute("id", item+"div");
-            divcont.setAttribute("class", "favouriteimg flex");
+            divcont.setAttribute("class", "favouriteimg flex onload");
             divwatchlist.appendChild(divcont);
             let div1 = document.createElement('div');
             divcont.appendChild(div1);
@@ -1635,7 +1677,7 @@ let watchListblname = [];
                 for ( let i=0; i<5; i++) {
                     let svgstar = document.createElementNS("http://www.w3.org/2000/svg", "svg");
                     svgstar.setAttribute("version", "1.1");
-                    svgstar.setAttribute("class", "star");
+                    svgstar.setAttribute("class", "star modalstar");
                     svgstar.setAttribute("id", "star" + item + i);
                     svgstar.setAttribute("xmlns", "http://www.w3.org/2000/svg");
                     svgstar.setAttribute("xmlns:xlink", "http://www.w3.org/1999/xlink");
@@ -1707,6 +1749,16 @@ let watchListblname = [];
             h2.innerHTML = doc.data().name;
             div2.appendChild(h2);
             z.push(doc.data().name);
+            // category
+            let h4 = document.createElement('h4');
+            h4.setAttribute("id", "categoryfull");
+            let fullbl = "Side story"
+            if (doc.data().full === "yes") {
+            h4.innerHTML = doc.data().category[0].toUpperCase() + doc.data().category.slice(1);
+            } else {
+            h4.innerHTML = doc.data().category[0].toUpperCase() + doc.data().category.slice(1) + " - " + fullbl;
+            }
+            div2.appendChild(h4);
             let h3 = document.createElement('h3');
             h3.setAttribute("class", "countryserie");
             h3.innerHTML = doc.data().country + " - " + doc.data().year;
@@ -1717,6 +1769,7 @@ let watchListblname = [];
         // button link watch
             let divflex = document.createElement('div');
             divflex.setAttribute("class", "flex");
+            divflex.setAttribute("id", "aligndiv");
             div2.appendChild(divflex);
             let linkseries = document.createElement('a');
             divflex.appendChild(linkseries);

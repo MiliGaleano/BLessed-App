@@ -21,6 +21,14 @@
         .swiper-container {
             margin-left: 3.5vw;
         }
+        @media (min-width: 790px) {
+        .swiper-slide {
+        width: 200px;
+        }
+        .swiper-container {
+        margin-left: 30px;
+        }
+        }
     </style>
     <title>BLessed</title>
 </head>
@@ -34,12 +42,24 @@
         <div id="home"><img src="img/faviconasas-01.png" alt="logo" id="logo"></div>
         <!-- search -->
         <div id="searchform" class="flex">
-            <div id="opensearch" onclick="openformsearch()">
-            <img src="img/lupa-01.png" alt="searchglass" id="glass">
+            <div id="opensearch">
+            <img src="img/lupa-01.png" alt="searchglass" id="glass" onclick="openformsearch()">
             <form id="formsearch">
                 <input type="search" name="search" placeholder="search..." id="inputsearch" oninput="searchHome('prueba', allBLs, allBLsid, indexmessage)">
-                <button type="button" id="findabl" ><img src="img/lupa-01.png" alt="searchglass" id="glassbutton"></button>
+                <button type="button" id="findabl" ><img src="img/lupa-01.png" alt="searchglass" id="glassbutton" onclick="closeformsearch()"></button>
               </form>
+            </div>
+        </div>
+        <!-- prueba menu hamb -->
+        <div id="hambmenu">
+            <img src="img/menu2.png" alt="menu" id="iconham" onclick="showmenu()">
+            <div id="divhamb">
+                <ul> 
+                    <li><a href="#"><img src="img/sasasd-01.png" alt="home" class="iconos"></a></li>
+                    <li><a href="favs.html"><img src="img/sadasd-01b-01.png" alt="favs" class="iconos heartpadding"></a></li>
+                    <li><a href="blist.html"><img src="img/Sin-título-4b-01.png" alt="blist" class="iconos"></a></li>
+                    <li><a href="watched.html"><img src="img/sssdfsdf-01b-01.png" alt="watched" class="iconos"></a></li>
+                </ul>
             </div>
         </div>
     </header>
@@ -64,7 +84,7 @@
             <div id="addabl" class="buttonhome" onclick="openmodaladd()">Add a missing BL</div>
         </div> 
         <!-- slider top rated -->
-        <h1 class="titlepage">Top rated</h1>
+        <h1 class="titlepage" id="toprate">Top rated</h1>
         <div id="sliderTop"></div>
         <!-- slider favs -->
         <h1 class="titlepage">Fan favourites</h1>
@@ -134,14 +154,16 @@
 
         <!-- thanks for add bl -->
         <div id="thanksadd" class="modalstyle">
-            <h1 class="titlepage">Thank you!</h1>
+            <h1 class="titlepage media">Thank you!</h1>
             <h2 class="modalstyleh1">We will try to add this bl as soon as possible.</h2>
         </div>
 
         <!-- modalseries -->
         <div id="modalseriew">
+            <div id="closeandcont">
             <p class="xmodal" id="closemodal">x</p>
             <div id="contmodal"></div>
+            </div>
         </div>
 
         <!-- modal rate -->

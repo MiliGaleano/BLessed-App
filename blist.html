@@ -18,15 +18,28 @@
     <div class="loading"></div>
 
     <header id="" class="flex">
+        <!-- logo -->
         <div id="home"><img src="img/faviconasas-01.png" alt="logo" id="logo"></div>
         <!-- search -->
         <div id="searchform" class="flex">
-            <div id="opensearch" onclick="openformsearch()">
-            <img src="img/lupa-01.png" alt="searchglass" id="glass">
+            <div id="opensearch">
+            <img src="img/lupa-01.png" alt="searchglass" id="glass" onclick="openformsearch()">
             <form id="formsearch">
-                <input type="text" name="search" placeholder="search..." id="inputsearch" oninput="searchHome('prueba', watchListblname, watchListbl, watchlistmessage)">
-                <button type="button" id="findabl" ><img src="img/lupa-01.png" alt="searchglass" id="glassbutton"></button>
+                <input type="search" name="search" placeholder="search..." id="inputsearch" oninput="searchHome('prueba', watchListblname, watchListbl, watchlistmessage)">
+                <button type="button" id="findabl" ><img src="img/lupa-01.png" alt="searchglass" id="glassbutton" onclick="closeformsearch()"></button>
               </form>
+            </div>
+        </div>
+        <!-- prueba menu hamb -->
+        <div id="hambmenu">
+            <img src="img/menu2.png" alt="menu" id="iconham" onclick="showmenu()">
+            <div id="divhamb">
+                <ul> 
+                    <li><a href="index.html"><img src="img/sasasd-01b-01.png" alt="home" class="iconos"></a></li>
+                    <li><a href="favs.html"><img src="img/sadasd-01b-01.png" alt="favs" class="iconos heartpadding"></a></li>
+                    <li><a href="#"><img src="img/Sin-título-4-01.png" alt="blist" class="iconos"></a></li>
+                    <li><a href="watched.html"><img src="img/sssdfsdf-01b-01.png" alt="watched" class="iconos"></a></li>
+                </ul>
             </div>
         </div>
     </header>
@@ -34,13 +47,15 @@
     <div id="contenttowatch">
         <!-- search result div -->
         <div id="prueba"></div>
-        <h1 class="titlepage">Watchlist</h1>
-        <div id="listtowatch"></div>
+        <h1 class="titlepage media">Watchlist</h1>
+        <div id="listtowatch" class="flex"></div>
 
             <!-- modalseries -->
             <div id="modalseriew">
+                <div id="closeandcont">
                 <p class="xmodal" id="closemodal">x</p>
                 <div id="contmodal"></div>
+                </div>
             </div>
 
             <!-- modal rate -->
