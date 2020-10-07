@@ -1259,7 +1259,6 @@ margin-bottom: 16px;
   left: 50%;
   margin-left: -275px;
   margin-top: -155px;
-  border
 }
 
 .xmodal{
@@ -1348,6 +1347,10 @@ p{
     padding-top: 6px;
     padding-bottom: 6px;
     margin-top: 12px;
+  }
+  .watchlink.nolink:hover{
+    color: transparent;
+    background-color: transparent;
   }
 
   .svgwatchedicon {
@@ -1551,6 +1554,9 @@ justify-content: space-evenly;
   margin-top: 16px;
     font-size: 2rem;
     padding-bottom: 24px;
+}
+.listsuggestion:hover{
+  opacity: 60%;
 }
 
 /* modal add bl */

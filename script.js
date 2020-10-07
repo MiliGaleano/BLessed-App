@@ -387,11 +387,15 @@ function closemenu() {
         db.collection('users').doc(usermail).collection('watchlist').doc(idofbl).delete()
         .then(function() {
         console.log("deleted!");
+        if(window.location.pathname.split("/").pop() === 'blist.html'){
+            document.getElementById(idofbl+"div").style.display="none";
+          } else {
         document.getElementById('svgeyewatch').setAttribute("onclick", "watchList('" +idofbl+ "')");
         document.getElementById('eyewatch').setAttribute("class", "");
         document.getElementById('eyewatch1').setAttribute("class", "");
         document.getElementById('eyewatch2').setAttribute("class", "");
-        document.getElementById(idofbl+"div").style.display="none";
+        // document.getElementById(idofbl+"div").style.display="none";
+          }
         })
         .catch(function(error) {
         console.error("Error: ", error);
@@ -1104,7 +1108,6 @@ let newTopListStars = [];
         // check if link
             if (doc.data().link === "") {
                 buttonwatch.setAttribute("class", "watchlink nolink");
-                linkseries.setAttribute("href", "");
             }
             else {
                 buttonwatch.setAttribute("class", "watchlink");
